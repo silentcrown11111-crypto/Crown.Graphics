@@ -19,10 +19,16 @@
     --text-muted: #6b7280;
 
     /* Typography - Premium Weights */
-    --font-main: 'Plus Jakarta Sans', sans-serif;
+    --font-main: 'Inter', sans-serif;
     --font-heading: 'Outfit', sans-serif;
-    /* Adding Outfit for a more tech-premium feel */
     --font-ui: 'Inter', sans-serif;
+
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
 
     /* Spacing & Borders - More geometric and precise */
     --radius-xl: 32px;
@@ -106,14 +112,17 @@ body.light-theme .form-group select option {
 
 body {
     background-color: var(--bg-color);
-    background-image: radial-gradient(circle at 15% 50%, rgba(14, 165, 233, 0.08), transparent 25%), radial-gradient(circle at 85% 30%, rgba(192, 132, 252, 0.08), transparent 25%);
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 40%);
     background-attachment: fixed;
     color: var(--text-primary);
     font-family: var(--font-main);
     position: relative;
     transition: background-color 0.5s ease, color 0.5s ease;
-    line-height: 1.6;
+    line-height: 1.7;
     overflow-x: hidden;
+    font-weight: var(--font-weight-regular);
 }
 
 /* Feature Ribbon Under Video */
@@ -249,18 +258,69 @@ body {
 
 /* Glassmorphism Utility EXTREME */
 .glass {
-    background: var(--surface-glass);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--border-glass);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
 .glass-premium {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Aurora Background for Hero */
+.hero-aurora {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.aurora-blob {
+    position: absolute;
+    width: 60vw;
+    height: 60vw;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.15;
+    animation: auroraFloat 20s infinite alternate ease-in-out;
+}
+
+.aurora-1 {
+    top: -20%;
+    left: -10%;
+    background: var(--primary-accent);
+    animation-delay: 0s;
+}
+
+.aurora-2 {
+    bottom: -10%;
+    right: -10%;
+    background: var(--secondary-accent);
+    animation-delay: -5s;
+}
+
+@keyframes auroraFloat {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(10%, 10%) scale(1.1);
+    }
+
+    66% {
+        transform: translate(-5%, 15%) scale(0.9);
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
 }
 
 /* Video Showcase & Cyber Mesh Animation */

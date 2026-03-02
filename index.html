@@ -181,6 +181,10 @@
     </nav>
 
     <header class="hero">
+        <div class="hero-aurora">
+            <div class="aurora-blob aurora-1"></div>
+            <div class="aurora-blob aurora-2"></div>
+        </div>
         <div class="container">
             <div class="hero-content animate-fade-in" style="margin-top: -50px;">
                 <h1 style="font-family: var(--font-heading);">Crafting Digital <br><span>Masterpieces</span></h1>
@@ -195,6 +199,25 @@
             </div>
         </div>
     </header>
+
+    <!-- Trusted By Marquee -->
+    <section class="trust-marquee">
+        <div class="marquee-content">
+            <div class="marquee-item"><i class="fab fa-google"></i> GOOGLE</div>
+            <div class="marquee-item"><i class="fab fa-amazon"></i> AMAZON</div>
+            <div class="marquee-item"><i class="fab fa-shopify"></i> SHOPIFY</div>
+            <div class="marquee-item"><i class="fab fa-stripe"></i> STRIPE</div>
+            <div class="marquee-item"><i class="fab fa-microsoft"></i> MICROSOFT</div>
+            <div class="marquee-item"><i class="fab fa-adobe"></i> ADOBE</div>
+            <!-- Duplicate for infinite effect -->
+            <div class="marquee-item"><i class="fab fa-google"></i> GOOGLE</div>
+            <div class="marquee-item"><i class="fab fa-amazon"></i> AMAZON</div>
+            <div class="marquee-item"><i class="fab fa-shopify"></i> SHOPIFY</div>
+            <div class="marquee-item"><i class="fab fa-stripe"></i> STRIPE</div>
+            <div class="marquee-item"><i class="fab fa-microsoft"></i> MICROSOFT</div>
+            <div class="marquee-item"><i class="fab fa-adobe"></i> ADOBE</div>
+        </div>
+    </section>
 
     <section id="services" class="extensive-services">
         <div class="container">
@@ -380,26 +403,25 @@
 
     <section id="about-pricing" class="about-pricing-section">
         <div class="container">
-            <h2 class="section-title">About Our Pricing</h2>
-            <div class="glass" style="padding: 40px; border-radius: var(--radius-lg); margin-bottom: 60px;">
-                <p style="font-size: 1.1rem; text-align: center; max-width: 900px; margin: 0 auto 30px;">
-                    Our credit-based system ensures you get exactly what you need. Buy a plan for the best value, or
-                    choose individual services for specific projects. <strong>1 Credit = 1 Standard Graphic
-                        Asset.</strong>
-                </p>
-                <div class="pricing-model-grid"
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                    <div class="model-desc">
-                        <h3><i class="fas fa-coins" style="color: var(--gold-accent);"></i> Credits Explained</h3>
-                        <p>Credits can be used for any service. Logo designs typically cost 3 credits, while a standard
-                            social media post costs 1 credit. High-end video projects are calculated based on
-                            complexity.</p>
-                    </div>
-                    <div class="model-desc">
-                        <h3><i class="fas fa-bolt" style="color: var(--primary-accent);"></i> Unlimited Flexibility</h3>
-                        <p>The Unlimited plan gives you a dedicated team member to handle all your requests without
-                            worrying about credit balances. Perfect for heavy-duty agencies.</p>
-                    </div>
+            <h2 class="section-title">Why Our Pricing Works</h2>
+            <div class="feature-grid-3"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px;">
+                <div class="feature-card glass" style="padding: 40px; border-radius: 20px; text-align: center;">
+                    <i class="fas fa-coins" style="font-size: 2.5rem; color: #fbbf24; margin-bottom: 20px;"></i>
+                    <h3>Smart Credit System</h3>
+                    <p>Standard assets cost 1 credit. Complex projects are estimated upfront. Zero hidden fees.</p>
+                </div>
+                <div class="feature-card glass" style="padding: 40px; border-radius: 20px; text-align: center;">
+                    <i class="fas fa-bolt"
+                        style="font-size: 2.5rem; color: var(--primary-accent); margin-bottom: 20px;"></i>
+                    <h3>Hyper-Fast Turnaround</h3>
+                    <p>Most requests are delivered within 24-48 hours. Rush options available for urgent needs.</p>
+                </div>
+                <div class="feature-card glass" style="padding: 40px; border-radius: 20px; text-align: center;">
+                    <i class="fas fa-shield-halved"
+                        style="font-size: 2.5rem; color: var(--secondary-accent); margin-bottom: 20px;"></i>
+                    <h3>Quality Guarantee</h3>
+                    <p>Premium quality or we redo it. Every asset is manually reviewed for surgical precision.</p>
                 </div>
             </div>
         </div>
@@ -453,8 +475,9 @@
                     <a href="#" class="cta-button pricing-buy-btn" data-plan="Professional Tier" data-price="149">Go
                         Pro</a>
                 </div>
-                <div class="pricing-card glass">
-                    <div class="popular-badge" style="background: var(--gold-accent);">ELITE</div>
+                <div class="pricing-card glass unlimited-glow">
+                    <div class="popular-badge" style="background: linear-gradient(to right, #fbbf24, #f59e0b);">ELITE
+                    </div>
                     <h3>Unlimited</h3>
                     <div class="price" data-usd-monthly="499" data-usd-yearly="399" data-gbp-monthly="390"
                         data-gbp-yearly="312" data-pkr-monthly="140000" data-pkr-yearly="112000"><span
@@ -564,10 +587,58 @@
         </div>
     </section>
 
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Client Stories</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card glass">
+                    <i class="fas fa-quote-left"></i>
+                    <p class="testimonial-text">"Crown Graphics transformed our brand from a generic startup to a
+                        premium player in the field. Their attention to detail in the logo and web app was surgical."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-img">JD</div>
+                        <div class="author-info">
+                            <h4>James Dalton</h4>
+                            <p>CEO, TechStream</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card glass">
+                    <i class="fas fa-quote-left"></i>
+                    <p class="testimonial-text">"The video editing is on another level. Our YouTube retention jumped by
+                        40% after we started using their cinematic edits. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">SK</div>
+                        <div class="author-info">
+                            <h4>Sarah Khan</h4>
+                            <p>Influencer & Creator</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card glass">
+                    <i class="fas fa-quote-left"></i>
+                    <p class="testimonial-text">"Fast, professional, and reliable. Their browser extension development
+                        saved us months of work. A truly world-class digital agency."</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">MR</div>
+                        <div class="author-info">
+                            <h4>Marcus Reed</h4>
+                            <p>Product Lead, Finnova</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="contact">
         <div class="container">
             <h2 class="section-title">Get in Touch</h2>
             <div class="contact-container glass animate-fade-in">
+                <div class="availability-status">
+                    <span class="status-dot"></span> Team Online: Ready to chat
+                </div>
                 <form class="contact-form">
                     <div class="form-group">
                         <label>Full Name</label>
