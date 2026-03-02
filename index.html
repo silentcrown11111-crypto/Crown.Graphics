@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crown Graphics | Premium Digital Agency</title>
+    <meta name="description" content="Premium Graphics, Video Editing, and Development Services for modern businesses.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- International Telephone Input CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+    <style>
+        /* WhatsApp Notification Simulation */
+        .wp-notif {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 300px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-left: 5px solid #25D366;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+            transform: translateX(400px);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            color: #111;
+        }
+
+        .wp-notif.active {
+            transform: translateX(0);
+        }
+
+        .wp-notif i {
+            font-size: 24px;
+            color: #25D366;
+        }
+
+        .wp-notif .text h4 {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #111;
+        }
+
+        .wp-notif .text p {
+            margin: 4px 0 0;
+            font-size: 0.85rem;
+            color: #444;
+        }
+
+        /* intl-tel-input Overrides for Glassmorphism */
+        .iti {
+            width: 100%;
+        }
+
+        .iti__country-list {
+            background: #1a1a1a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .iti__country:hover {
+            background: rgba(59, 130, 246, 0.5);
+        }
+
+        .iti__selected-flag {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border-radius: 8px 0 0 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <!-- Onboarding Welcome Overlay -->
+    <div id="onboardingOverlay" class="onboarding-overlay active">
+        <div class="onboarding-content glass-premium animate-fade-in">
+            <div class="onboarding-header">
+                <div class="logo" style="margin-bottom: 20px; font-size: 2rem;">Crown Graphics</div>
+                <h2 style="font-family: var(--font-heading); margin-top: 10px; font-size: 2.5rem;">Premium Digital
+                    Studio</h2>
+                <p style="color: var(--text-secondary); margin-top: 15px; font-size: 1.1rem;">Where creativity meets
+                    technical excellence.</p>
+            </div>
+
+            <div class="onboarding-form">
+                <button id="startExperience" class="cta-button"
+                    onclick="this.parentElement.parentElement.parentElement.classList.remove('active'); localStorage.setItem('crown_visited', 'true');"
+                    style="width: 100%; margin-top: 10px; font-size: 1.2rem; padding: 15px;">
+                    Enter Studio <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <nav class="glass">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <a href="#" class="logo-container">
+                <div class="orb-ring"></div>
+                <span class="logo">Crown Graphics</span>
+            </a>
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn"
+                style="display: none; background: transparent; border: none; color: white; font-size: 1.5rem; cursor: pointer;">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <div class="dropdown">
+                    <a class="dropbtn"
+                        onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})"
+                        style="text-decoration: none; color: inherit; cursor: pointer;">Services <i
+                            class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 5px;"></i></a>
+                    <div class="dropdown-content glass">
+                        <div class="mega-menu">
+                            <div class="mega-column">
+                                <h3><i class="fas fa-palette"></i> Graphics</h3>
+                                <a href="#" class="quote-trigger" data-service="Logo Design">Logo Design</a>
+                                <a href="#" class="quote-trigger" data-service="Business Cards">Business Cards</a>
+                                <a href="#" class="quote-trigger" data-service="Posters & Flyers">Posters & Flyers</a>
+                                <a href="#" class="quote-trigger" data-service="Social Media Kits">Social Media Kits</a>
+                                <a href="#" class="quote-trigger" data-service="UI/UX Mockups">UI/UX Mockups</a>
+                                <a href="#" class="quote-trigger" data-service="Branding Packages">Branding Packages</a>
+                            </div>
+                            <div class="mega-column">
+                                <h3><i class="fas fa-video"></i> Video</h3>
+                                <a href="#" class="quote-trigger" data-service="Cinematic Edits">Cinematic Edits</a>
+                                <a href="#" class="quote-trigger" data-service="YouTube Vlogs">YouTube Vlogs</a>
+                                <a href="#" class="quote-trigger" data-service="Short-form Reels">Short-form (Reels)</a>
+                                <a href="#" class="quote-trigger" data-service="Corporate Promos">Corporate Promos</a>
+                                <a href="#" class="quote-trigger" data-service="VFX & Motion">VFX & Motion</a>
+                            </div>
+                            <div class="mega-column">
+                                <h3><i class="fas fa-code"></i> Web Dev</h3>
+                                <a href="#" class="quote-trigger" data-service="E-commerce Stores">E-commerce Stores</a>
+                                <a href="#" class="quote-trigger" data-service="SaaS Platforms">SaaS Platforms</a>
+                                <a href="#" class="quote-trigger" data-service="Business Sites">Business Sites</a>
+                                <a href="#" class="quote-trigger" data-service="Landing Pages">Landing Pages</a>
+                                <a href="#" class="quote-trigger" data-service="Web Apps">Web Apps</a>
+                            </div>
+                            <div class="mega-column">
+                                <h3><i class="fas fa-puzzle-piece"></i> Extensions</h3>
+                                <a href="#" class="quote-trigger" data-service="Chrome Web Store">Chrome Web Store</a>
+                                <a href="#" class="quote-trigger" data-service="Firefox Add-ons">Firefox Add-ons</a>
+                                <a href="#" class="quote-trigger" data-service="Edge Extensions">Edge Extensions</a>
+                                <a href="#" class="quote-trigger" data-service="Privacy Tools">Privacy Tools</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#about-pricing">About Pricing</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#portfolio">Our Work</a>
+                <a href="#about">About Us</a>
+                <a href="#blog">Blog</a>
+            </div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <div id="google_translate_element"
+                    style="border-radius: var(--radius-md); overflow: hidden; max-height: 40px;"></div>
+                <button id="themeToggle" class="theme-btn" title="Toggle Light/Dark Mode">
+                    <i class="fas fa-sun" style="display: none;"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="#contact" class="cta-button nav-cta">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content animate-fade-in" style="margin-top: -50px;">
+                <h1 style="font-family: var(--font-heading);">Crafting Digital <br><span>Masterpieces</span></h1>
+                <p style="font-size: 1.4rem; opacity: 0.9;">We transform your ideas into stunning visuals, immersive
+                    videos, and high-performance digital solutions with surgical precision.</p>
+                <div class="hero-btns" style="display: flex; gap: 20px;">
+                    <a href="#services" class="cta-button">Launch Project</a>
+                    <a href="#portfolio" class="cta-button"
+                        style="background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass);">View
+                        Dossier</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="services" class="extensive-services">
+        <div class="container">
+            <h2 class="section-title">Our Capabilities</h2>
+
+            <div class="category-group">
+                <div class="category-header">
+                    <i class="fas fa-palette"></i>
+                    <h3>Graphics & Branding</h3>
+                </div>
+                <div class="bento-grid">
+                    <div class="bento-item bento-span-2 bento-row-2 glass-premium quote-trigger"
+                        data-service="Full Branding Suite" style="padding: 0; display: flex; flex-direction: column;">
+                        <img src="C:\Users\HAMID MEHMOOD\.gemini\antigravity\brain\e7644a52-2240-4781-b129-d155a003b91c\graphics_branding_hero_1772454283454.png"
+                            alt="Graphics Hero" style="width: 100%; height: 350px; object-fit: cover;">
+                        <div style="padding: 32px;">
+                            <h4 style="font-size: 1.8rem; margin-bottom: 12px;">Full Branding Suite</h4>
+                            <p>Complete visual identity systems, from logo to brand voice, designed for the future.</p>
+                        </div>
+                    </div>
+                    <div class="sub-card glass quote-trigger" data-service="Logo Design">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=400"
+                            alt="Logo Design" class="service-thumbnail">
+                        <h4>Logo Design</h4>
+                        <p>Custom, scalable vector icons.</p>
+                    </div>
+                    <div class="sub-card glass quote-trigger" data-service="UI/UX Design">
+                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=400"
+                            alt="UI/UX Design" class="service-thumbnail">
+                        <h4>UI/UX Mockups</h4>
+                        <p>High-fidelity app & web flows.</p>
+                    </div>
+                    <div class="sub-card glass quote-trigger" data-service="Social Kits">
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=400"
+                            alt="Social Media" class="service-thumbnail">
+                        <h4>Social Media Kits</h4>
+                        <p>Cohesive templates & banners.</p>
+                    </div>
+                    <div class="sub-card glass quote-trigger" data-service="Illustration">
+                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=400"
+                            alt="Illustrations" class="service-thumbnail">
+                        <h4>Illustrations</h4>
+                        <p>Bespoke digital artwork.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-group">
+                <div class="category-header">
+                    <i class="fas fa-video"></i>
+                    <h3>Video Production</h3>
+                </div>
+                <div class="bento-grid">
+                    <div class="bento-item bento-span-4 glass-premium"
+                        style="padding: 0; min-height: 500px; position: relative;">
+                        <video width="100%" autoPlay loop muted playsInline
+                            style="width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0;">
+                            <source
+                                src="https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-code-4171-large.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="video-overlay-content"
+                            style="background: radial-gradient(circle, rgba(3, 7, 18, 0.4) 0%, rgba(3, 7, 18, 0.8) 100%);">
+                            <h3 class="shimmer-text" style="font-size: 3.5rem;">Cinematic Mastery</h3>
+                            <p style="font-size: 1.2rem; margin-bottom: 30px;">Next-gen visual storytelling for the
+                                digital age.</p>
+                            <div class="pulsing-play-btn quote-trigger" data-service="Cinematic Production">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sub-card glass quote-trigger" data-service="Film Edits">
+                        <img src="C:\Users\HAMID MEHMOOD\.gemini\antigravity\brain\e7644a52-2240-4781-b129-d155a003b91c\video_production_hero_1772454299889.png"
+                            alt="Video Hero" class="service-thumbnail">
+                        <h4>High-End Edits</h4>
+                        <p>Professional grade color and pacing.</p>
+                    </div>
+                    <div class="sub-card glass quote-trigger" data-service="VFX">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=400"
+                            alt="VFX" class="service-thumbnail">
+                        <h4>VFX & Motion</h4>
+                        <p>Dynamic effects and animation.</p>
+                    </div>
+                    <div class="sub-card glass quote-trigger" data-service="Social Content">
+                        <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&q=80&w=400"
+                            alt="Reels" class="service-thumbnail">
+                        <h4>Viral Shorts</h4>
+                        <p>Engineered for maximum retention.</p>
+                    </div>
+                    <div class="sub-card glass quote-trigger" data-service="Corporate">
+                        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=400"
+                            alt="Corporate" class="service-thumbnail">
+                        <h4>Corporate</h4>
+                        <p>Professional brand messaging.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-group">
+                <div class="category-header">
+                    <i class="fas fa-code"></i>
+                    <h3>Digital Development</h3>
+                </div>
+                <div class="bento-grid">
+                    <div class="bento-item bento-span-2 glass-premium quote-trigger" data-service="Custom Engineering"
+                        style="padding: 0; display: flex; flex-direction: column;">
+                        <img src="C:\Users\HAMID MEHMOOD\.gemini\antigravity\brain\e7644a52-2240-4781-b129-d155a003b91c\web_dev_hero_1772454319445.png"
+                            alt="Web Hero" style="width: 100%; height: 250px; object-fit: cover;">
+                        <div style="padding: 32px;">
+                            <h4 style="font-size: 1.6rem; margin-bottom: 12px;">Custom Engineering</h4>
+                            <p>Bespoke web applications, SaaS platforms, and enterprise solutions built for scale.</p>
+                        </div>
+                    </div>
+                    <div class="sub-card glass quote-trigger" data-service="E-commerce">
+                        <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=400"
+                            alt="E-commerce" class="service-thumbnail">
+                        <h4>E-Commerce</h4>
+                        <p>High-converting stores.</p>
+                    </div>
+                    <div class="sub-card glass quote-trigger" data-service="Landing Pages">
+                        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&q=80&w=400"
+                            alt="Landing Pages" class="service-thumbnail">
+                        <h4>Landing Pages</h4>
+                        <p>Direct response optimized.</p>
+                    </div>
+                    <div class="sub-card glass bento-span-2 quote-trigger" data-service="Browser Extensions">
+                        <img src="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?auto=format&fit=crop&q=80&w=400"
+                            alt="Chrome" class="service-thumbnail">
+                        <h4>Browser Extensions</h4>
+                        <p>Powerful Manifest V3 compliant tools for Chrome, Firefox, and Edge.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-group">
+                <div class="category-header">
+                    <i class="fas fa-puzzle-piece"></i>
+                    <h3>Browser Extensions</h3>
+                </div>
+                <div class="subcategory-grid">
+                    <div class="sub-card glass quote-trigger" data-service="Chrome Web Store">
+                        <img src="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?auto=format&fit=crop&q=80&w=400"
+                            alt="Chrome" class="service-thumbnail">
+                        <h4>Chrome Web Store</h4>
+                        <p>Manifest V3 compliant apps.</p>
+                    </div>
+                    <div class="sub-card glass quote-trigger" data-service="Firefox Add-ons">
+                        <img src="https://images.unsplash.com/photo-1631427962232-803d4f30c64f?auto=format&fit=crop&q=80&w=400"
+                            alt="Firefox" class="service-thumbnail">
+                        <h4>Firefox Add-ons</h4>
+                        <p>Cross-browser compatibility.</p>
+                    </div>
+                    <div class="sub-card glass quote-trigger" data-service="Productivity Tools">
+                        <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&q=80&w=400"
+                            alt="Productivity" class="service-thumbnail">
+                        <h4>Productivity Tools</h4>
+                        <p>Workflow automation scripts.</p>
+                    </div>
+                    <div class="sub-card glass quote-trigger" data-service="Privacy Shields">
+                        <img src="https://images.unsplash.com/photo-1563206767-5b18f218e8de?auto=format&fit=crop&q=80&w=400"
+                            alt="Privacy" class="service-thumbnail">
+                        <h4>Privacy Shields</h4>
+                        <p>Adblockers & tracker blockers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods Bar -->
+    <section class="payment-methods-bar">
+        <div class="container">
+            <p>Secure global payments accepted via:</p>
+            <div class="payment-icons">
+                <i class="fab fa-stripe"></i>
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-paypal"></i>
+                <i class="fab fa-bitcoin"></i>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-pricing" class="about-pricing-section">
+        <div class="container">
+            <h2 class="section-title">About Our Pricing</h2>
+            <div class="glass" style="padding: 40px; border-radius: var(--radius-lg); margin-bottom: 60px;">
+                <p style="font-size: 1.1rem; text-align: center; max-width: 900px; margin: 0 auto 30px;">
+                    Our credit-based system ensures you get exactly what you need. Buy a plan for the best value, or
+                    choose individual services for specific projects. <strong>1 Credit = 1 Standard Graphic
+                        Asset.</strong>
+                </p>
+                <div class="pricing-model-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                    <div class="model-desc">
+                        <h3><i class="fas fa-coins" style="color: var(--gold-accent);"></i> Credits Explained</h3>
+                        <p>Credits can be used for any service. Logo designs typically cost 3 credits, while a standard
+                            social media post costs 1 credit. High-end video projects are calculated based on
+                            complexity.</p>
+                    </div>
+                    <div class="model-desc">
+                        <h3><i class="fas fa-bolt" style="color: var(--primary-accent);"></i> Unlimited Flexibility</h3>
+                        <p>The Unlimited plan gives you a dedicated team member to handle all your requests without
+                            worrying about credit balances. Perfect for heavy-duty agencies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing">
+        <div class="container">
+            <h2 class="section-title">Choose Your Plan</h2>
+
+            <div class="pricing-toggle-container">
+                <span class="toggle-label active" id="monthlyBtn">Monthly</span>
+                <label class="switch">
+                    <input type="checkbox" id="pricingToggle">
+                    <span class="slider round"></span>
+                </label>
+                <span class="toggle-label" id="yearlyBtn">Yearly <span class="save-badge">Save 20%</span></span>
+            </div>
+
+            <div class="pricing-grid expanded-pricing">
+                <div class="pricing-card glass">
+                    <h3>Starter</h3>
+                    <div class="price" data-usd-monthly="49" data-usd-yearly="39" data-gbp-monthly="39"
+                        data-gbp-yearly="30" data-pkr-monthly="15000" data-pkr-yearly="12000"><span
+                            class="currency-symbol">$</span><span class="amount">49</span><span
+                            class="duration">/mo</span></div>
+                    <p class="plan-desc">Great for small startups & individuals.</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> <strong>20 Credits</strong> per month</li>
+                        <li><i class="fas fa-check"></i> 2 Video Edits Included</li>
+                        <li><i class="fas fa-check"></i> Standard Support</li>
+                        <li><i class="fas fa-check"></i> 48hr Turnaround</li>
+                    </ul>
+                    <a href="#" class="cta-button pricing-buy-btn" data-plan="Starter Tier" data-price="49">Get
+                        Started</a>
+                </div>
+                <div class="pricing-card glass popular">
+                    <div class="popular-badge">MOST POPULAR</div>
+                    <h3>Professional</h3>
+                    <div class="price" data-usd-monthly="149" data-usd-yearly="119" data-gbp-monthly="115"
+                        data-gbp-yearly="92" data-pkr-monthly="42000" data-pkr-yearly="33600"><span
+                            class="currency-symbol">$</span><span class="amount">149</span><span
+                            class="duration">/mo</span></div>
+                    <p class="plan-desc">For growing brands & scaling agencies.</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> <strong>100 Credits</strong> per month</li>
+                        <li><i class="fas fa-check"></i> High-Quality Rendering</li>
+                        <li><i class="fas fa-check"></i> Priority Support</li>
+                        <li><i class="fas fa-check"></i> 24hr Turnaround</li>
+                        <li><i class="fas fa-check"></i> Source Files Included</li>
+                    </ul>
+                    <a href="#" class="cta-button pricing-buy-btn" data-plan="Professional Tier" data-price="149">Go
+                        Pro</a>
+                </div>
+                <div class="pricing-card glass">
+                    <div class="popular-badge" style="background: var(--gold-accent);">ELITE</div>
+                    <h3>Unlimited</h3>
+                    <div class="price" data-usd-monthly="499" data-usd-yearly="399" data-gbp-monthly="390"
+                        data-gbp-yearly="312" data-pkr-monthly="140000" data-pkr-yearly="112000"><span
+                            class="currency-symbol">$</span><span class="amount">499</span><span
+                            class="duration">/mo</span></div>
+                    <p class="plan-desc">Total digital transformation partners.</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> <strong>Unlimited</strong> Requests</li>
+                        <li><i class="fas fa-check"></i> Dedicated Art Director</li>
+                        <li><i class="fas fa-check"></i> Custom Web/App Solutions</li>
+                        <li><i class="fas fa-check"></i> VIP Slack Access</li>
+                        <li><i class="fas fa-check"></i> Same-day Delivery</li>
+                    </ul>
+                    <a href="#" class="cta-button pricing-buy-btn" data-plan="Unlimited Tier" data-price="499">Go
+                        Unlimited</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title" style="text-align: left;">Who We Are</h2>
+                    <p>Crown Graphics isn't just an agency; it's a creative powerhouse. Founded by industry veterans, we
+                        merge stunning aesthetics with cutting-edge technology.</p>
+                    <p>We believe that every brand deserves a royal treatment, which is why we obsess over every pixel,
+                        every frame of video, and every line of code.</p>
+                    <div class="stats-row">
+                        <div class="stat">
+                            <h3>500+</h3><span>Projects</span>
+                        </div>
+                        <div class="stat">
+                            <h3>99%</h3><span>Client Success</span>
+                        </div>
+                        <div class="stat">
+                            <h3>24/7</h3><span>Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="blog-section">
+        <div class="container">
+            <h2 class="section-title">Latest Insights</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item glass">
+                    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800"
+                        alt="Blog Post">
+                    <div class="portfolio-overlay"
+                        style="opacity: 1; background: linear-gradient(to top, rgba(5, 11, 24, 1), rgba(5, 11, 24, 0.4));">
+                        <span style="color: var(--primary-accent); font-size: 0.8rem; margin-bottom: 5px;">Design
+                            Trends</span>
+                        <h3>Glassmorphism in 2026</h3>
+                        <a href="#" style="color: white; margin-top: 10px; font-weight: 600;">Read More <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="portfolio-item glass">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800"
+                        alt="Blog Post">
+                    <div class="portfolio-overlay"
+                        style="opacity: 1; background: linear-gradient(to top, rgba(5, 11, 24, 1), rgba(5, 11, 24, 0.4));">
+                        <span style="color: var(--secondary-accent); font-size: 0.8rem; margin-bottom: 5px;">Web
+                            Development</span>
+                        <h3>React vs. Vanilla JS for Extensions</h3>
+                        <a href="#" style="color: white; margin-top: 10px; font-weight: 600;">Read More <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Latest Works</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item glass animate-fade-in">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=800"
+                        alt="Branding Project">
+                    <div class="portfolio-overlay">
+                        <h3>Lumina Logo</h3>
+                        <p>Graphic Design / Branding</p>
+                    </div>
+                </div>
+                <div class="portfolio-item glass animate-fade-in" style="animation-delay: 0.1s;">
+                    <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&q=80&w=800"
+                        alt="Video Edit">
+                    <div class="portfolio-overlay">
+                        <h3>Urban Motion</h3>
+                        <p>Video Editing / VFX</p>
+                    </div>
+                </div>
+                <div class="portfolio-item glass animate-fade-in" style="animation-delay: 0.2s;">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
+                        alt="Web Project">
+                    <div class="portfolio-overlay">
+                        <h3>SaaS Pulse</h3>
+                        <p>Website Development</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="contact-container glass animate-fade-in">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Project Type</label>
+                        <select
+                            style="padding: 16px; border-radius: var(--radius-md); background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-glass); color: white; display: block; font-family: inherit;">
+                            <option value="graphics">Graphics Design</option>
+                            <option value="video">Video Editing</option>
+                            <option value="extension">Extension Development</option>
+                            <option value="website">Website Development</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea rows="5" placeholder="Tell us about your project..." required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="complex-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">Crown Graphics</div>
+                    <p>Transforming ideas into digital masterpieces. We are a premium agency specializing in design,
+                        video, web, and custom extensions.</p>
+                    <div class="social-links footer-socials">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#portfolio">Careers</a></li>
+                        <li><a href="#blog">Blog & News</a></li>
+                        <li><a href="#contact">Contact Support</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Top Services</h3>
+                    <ul>
+                        <li><a href="#">Branding & Identity</a></li>
+                        <li><a href="#">Premium UI/UX Design</a></li>
+                        <li><a href="#">Cinematic Video Production</a></li>
+                        <li><a href="#">Custom SaaS Development</a></li>
+                        <li><a href="#">Browser Extensions</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for the latest design trends and agency news.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Crown Graphics Agency. Crafted with <i class="fas fa-heart"></i> for digital excellence.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dynamic Quote Modal -->
+    <div id="quoteModal" class="modal-overlay">
+        <div class="modal-content glass">
+            <button class="close-modal"><i class="fas fa-times"></i></button>
+            <h2 id="modalTitle">Request a Quote</h2>
+            <p id="modalDesc" style="color: var(--text-secondary); margin-bottom: 24px;">Configure your custom service
+                request below.</p>
+
+            <!-- Dynamic Pricing Banner -->
+            <div id="priceEstimateBanner" class="glass"
+                style="padding: 15px; border-radius: 12px; margin-bottom: 24px; border-left: 4px solid var(--primary-accent); display: flex; justify-content: space-between; align-items: center; background: rgba(99, 102, 241, 0.1);">
+                <span style="font-weight: 600; font-size: 0.9rem; color: var(--text-primary);">Estimated
+                    Investment:</span>
+                <span id="estimatedAmount"
+                    style="font-size: 1.2rem; font-weight: 800; color: var(--primary-accent);">$0.00</span>
+            </div>
+
+            <form id="quoteForm" class="contact-form">
+                <div class="form-group">
+                    <label>Project Scope / Style</label>
+                    <select id="modalScope" required>
+                        <option value="basic">Basic / Clean</option>
+                        <option value="premium">Premium / Highly Detailed</option>
+                        <option value="enterprise">Enterprise / Custom Architecture</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Timeline Priority</label>
+                    <select id="modalUrgency" required>
+                        <option value="standard">Standard (14-30 days)</option>
+                        <option value="rush">Rush (Under 7 days) +25%</option>
+                    </select>
+                </div>
+
+                <!-- Dynamic Service Specific Container -->
+                <div id="dynamicFieldsContainer" style="margin-bottom: 24px;"></div>
+
+                <div class="form-group">
+                    <label>Custom Design Preferences / How do you want it made?</label>
+                    <textarea id="modalCustom" rows="4"
+                        placeholder="Describe your vision, brand colors, target audience, or specific tech stack..."
+                        required></textarea>
+                </div>
+                <!-- Delivery & Contacts -->
+                <div class="form-group" style="display: flex; gap: 16px;">
+                    <div style="flex: 1;">
+                        <label>Your Email</label>
+                        <input type="email" id="modalEmail" placeholder="you@company.com" required>
+                    </div>
+                    <div style="flex: 1;">
+                        <label>Delivery Method</label>
+                        <select id="modalDelivery" required>
+                            <option value="website">Website Notification</option>
+                            <option value="whatsapp">WhatsApp Delivery</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" id="whatsappGroup" style="display: none;">
+                    <label>WhatsApp Number</label>
+                    <input type="tel" id="modalPhone" placeholder="Enter number">
+                </div>
+
+                <button type="submit" id="mainSubmitBtn" class="cta-button submit-btn" style="width: 100%;">Calculate
+                    Estimate & Proceed</button>
+            </form>
+
+            <!-- OTP Section (Hidden initially) -->
+            <div id="otpSection" class="contact-form" style="display: none; text-align: center; margin-top: 20px;">
+                <hr style="border-color: rgba(255,255,255,0.1); margin-bottom: 20px;">
+                <h3 style="color: var(--primary-accent); margin-bottom: 10px;"><i class="fab fa-whatsapp"></i> WhatsApp
+                    Verification</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.9rem;">We've sent a 4-digit
+                    security code to your WhatsApp to verify the delivery connection.</p>
+
+                <div class="form-group" style="max-width: 200px; margin: 0 auto 20px;">
+                    <input type="text" id="otpInput" maxlength="4" placeholder="0000"
+                        style="text-align: center; font-size: 2rem; letter-spacing: 10px; padding: 10px;">
+                </div>
+
+                <p style="color: var(--secondary-accent); font-weight: bold; margin-bottom: 20px;">Time Remaining: <span
+                        id="otpTimer">01:00</span></p>
+
+                <button id="verifyOtpBtn" class="cta-button submit-btn" style="width: 100%; margin-bottom: 10px;">Verify
+                    & Submit Order</button>
+                <button id="cancelOtpBtn"
+                    style="background: transparent; border: none; color: var(--text-secondary); cursor: pointer; text-decoration: underline;">Cancel
+                    / Edit Details</button>
+            </div>
+
+            <!-- Success Section -->
+            <div id="successSection" style="display: none; text-align: center; padding: 40px 0;">
+                <i class="fas fa-check-circle" style="font-size: 4rem; color: #10b981; margin-bottom: 20px;"></i>
+                <h3 style="margin-bottom: 10px;">Order Successfully Placed!</h3>
+                <p style="color: var(--text-secondary);">Your custom design request has been saved securely to our
+                    system.</p>
+                <a href="admin.html" target="_blank"
+                    style="display: inline-block; margin-top: 20px; color: var(--primary-accent);">View Dashboard
+                    Simulation &rarr;</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Secure Checkout Modal (For Pricing Plans) -->
+    <div id="checkoutModal" class="modal-overlay">
+        <div class="modal-content glass">
+            <button class="close-modal checkout-close-btn"><i class="fas fa-times"></i></button>
+            <h2>Secure Checkout</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 24px;">Complete your purchase for: <strong
+                    id="checkoutPlanName" style="color: var(--primary-accent);">Plan</strong></p>
+
+            <div
+                style="background: rgba(255,255,255,0.05); padding: 16px; border-radius: var(--radius-md); margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--border-glass);">
+                <span style="font-weight: 500;">Total Amount</span>
+                <span id="checkoutTotalAmount" style="font-size: 1.5rem; font-weight: 800; color: white;">$0</span>
+            </div>
+
+            <form id="checkoutForm" class="contact-form">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="checkoutName" placeholder="Jane Doe" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="checkoutEmail" placeholder="jane@company.com" required>
+                </div>
+
+                <!-- Payment Method Toggle -->
+                <div class="form-group">
+                    <label>Payment Method</label>
+                    <div style="display: flex; gap: 10px;">
+                        <label class="payment-radio"
+                            style="flex: 1; border: 1px solid var(--primary-accent); padding: 12px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.05);">
+                            <input type="radio" name="payMethod" value="card" checked> <i
+                                class="fas fa-credit-card"></i> Credit Card
+                        </label>
+                        <label class="payment-radio"
+                            style="flex: 1; border: 1px solid var(--border-glass); padding: 12px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 8px; background: transparent;">
+                            <input type="radio" name="payMethod" value="paypal"> <i class="fab fa-paypal"></i> PayPal
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Simulated Card UI -->
+                <div id="cardUI"
+                    style="background: rgba(0,0,0,0.2); border: 1px solid var(--border-glass); border-radius: var(--radius-md); padding: 20px; margin-bottom: 20px;">
+                    <div class="form-group" style="margin-bottom: 12px;">
+                        <label style="font-size: 0.85rem;">Card Number</label>
+                        <div style="position: relative;">
+                            <i class="fab fa-cc-visa"
+                                style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); font-size: 1.2rem; color: #cbd5e1;"></i>
+                            <input type="text" placeholder="0000 0000 0000 0000" maxlength="19" required id="cardInput"
+                                style="letter-spacing: 2px;">
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 12px;">
+                        <div class="form-group" style="flex: 1;">
+                            <label style="font-size: 0.85rem;">Expiry Date</label>
+                            <input type="text" placeholder="MM/YY" maxlength="5" required id="expInput">
+                        </div>
+                        <div class="form-group" style="flex: 1;">
+                            <label style="font-size: 0.85rem;">CVC</label>
+                            <input type="password" placeholder="123" maxlength="3" required id="cvcInput">
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="cta-button submit-btn" style="width: 100%;"><i class="fas fa-lock"></i> Pay
+                    Now securely</button>
+            </form>
+
+            <div id="checkoutSuccess" style="display: none; text-align: center; padding: 40px 0;">
+                <i class="fas fa-check-circle" style="font-size: 4rem; color: #10b981; margin-bottom: 20px;"></i>
+                <h3 style="margin-bottom: 10px;">Payment Successful!</h3>
+                <p style="color: var(--text-secondary);">Your subscription is active. Order logged.</p>
+                <a href="admin.html" target="_blank"
+                    style="display: inline-block; margin-top: 20px; color: var(--primary-accent);">View Dashboard
+                    Simulation &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,ur,ar',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- International Telephone Input JS -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@20.0.5/build/js/intlTelInput.min.js"></script>
+
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>

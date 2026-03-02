@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crown Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Admin specific overrides */
+        body {
+            padding-top: 100px;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .orders-table-wrapper {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-lg);
+            overflow-x: auto;
+            padding: 20px;
+        }
+
+        body.light-theme .orders-table-wrapper {
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th,
+        td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        body.light-theme th,
+        body.light-theme td {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            color: var(--light-text-secondary);
+        }
+
+        th {
+            font-weight: 600;
+            color: white;
+            white-space: nowrap;
+        }
+
+        body.light-theme th {
+            color: var(--light-text-primary);
+        }
+
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .status-pending {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+        }
+
+        .status-active {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .status-completed {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+        }
+
+        .status-cancelled {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+
+        .action-btn {
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            border: 1px solid var(--border-glass);
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-right: 4px;
+        }
+
+        .action-btn:hover {
+            background: var(--primary-accent);
+            border-color: var(--primary-accent);
+        }
+
+        .action-approve {
+            color: #10b981;
+        }
+
+        .action-complete {
+            color: #3b82f6;
+        }
+
+        .action-cancel {
+            color: #ef4444;
+        }
+
+        /* Login Overlay */
+        .login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-color);
+            z-index: 3000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .login-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .login-card {
+            width: 90%;
+            max-width: 400px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 16px;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+            margin: 24px 0;
+            letter-spacing: 0.5rem;
+        }
+
+        .login-btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Settings Icon */
+        .settings-btn {
+            background: transparent;
+            border: 1px solid var(--border-glass);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-left: 8px;
+            /* Offset from theme toggle */
+        }
+
+        .settings-btn:hover {
+            background: var(--primary-accent);
+            border-color: var(--primary-accent);
+        }
+
+        .dashboard-content {
+            display: none;
+        }
+
+        .dashboard-content.visible {
+            display: block;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Elements -->
+    <div class="background-mesh"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <nav class="glass" style="padding: 10px 0; background: rgba(5, 11, 24, 0.95);">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <a href="index.html" class="logo-container">
+                <div class="orb-ring"></div>
+                <span class="logo">Crown Graphics</span>
+            </a>
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <button id="openSettingsBtn" class="settings-btn" title="Admin Settings">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <button id="themeToggle" class="theme-btn" title="Toggle Light/Dark Mode">
+                    <i class="fas fa-sun" style="display: none;"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="index.html" class="cta-button"
+                    style="background: transparent; border: 1px solid var(--border-glass); color: white;">Back to
+                    Site</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Overlay -->
+    <div id="loginOverlay" class="login-overlay">
+        <div class="glass login-card">
+            <h2 style="margin-bottom: 8px;">Admin Login</h2>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Enter passcode to access dashboard</p>
+            <form id="loginForm">
+                <input type="password" id="adminPassword" class="login-input" placeholder="••••••" maxlength="6"
+                    required autofocus>
+                <button type="submit" class="cta-button login-btn">Unlock Dashboard</button>
+            </form>
+            <p id="loginError" style="color: #ef4444; font-size: 0.85rem; margin-top: 16px; display: none;">Invalid
+                password. Try again.</p>
+        </div>
+    </div>
+
+    <!-- Main Content Wrapped -->
+    <div id="dashboardContent" class="dashboard-content">
+        <main class="container">
+            <div class="admin-header">
+                <div>
+                    <h1 style="font-size: 2.5rem; margin-bottom: 8px;">Order Dashboard</h1>
+                    <p style="color: var(--text-secondary);">Simulated backend viewing orders from localStorage.</p>
+                </div>
+                <button id="clearDataBtn" class="cta-button" style="background: #ef4444; border: none;"><i
+                        class="fas fa-trash"></i> Clear All Data</button>
+            </div>
+
+            <div class="orders-table-wrapper">
+                <table id="ordersTable">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Date</th>
+                            <th>Service Target</th>
+                            <th>Details (Scope / Priority)</th>
+                            <th>Contact (Email / Method)</th>
+                            <th>Custom Requirements</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersBody">
+                        <!-- Populated by admin.js -->
+                    </tbody>
+                </table>
+                <div id="emptyState" class="empty-state" style="display: none;">
+                    <i class="fas fa-inbox" style="font-size: 3rem; margin-bottom: 16px; opacity: 0.5;"></i>
+                    <h3>No orders found</h3>
+                    <p>Go to the main site and submit a quote request to see it appear here.</p>
+                </div>
+            </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal-overlay">
+        <div class="modal-content glass">
+            <button id="closeSettings" class="close-modal"><i class="fas fa-times"></i></button>
+            <h2>Admin Settings</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 24px;">Manage your dashboard security.</p>
+
+            <form id="changePasswordForm" class="contact-form">
+                <div class="form-group">
+                    <label>Current Password</label>
+                    <input type="password" id="currPwd" placeholder="••••••" required>
+                </div>
+                <div class="form-group">
+                    <label>New Password</label>
+                    <input type="password" id="newPwd" placeholder="6-digit passcode" maxlength="6" required>
+                </div>
+                <button type="submit" class="cta-button">Update Password</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>
