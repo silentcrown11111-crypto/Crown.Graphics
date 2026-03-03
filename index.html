@@ -15,7 +15,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
     <!-- International Telephone Input CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
     <style>
@@ -181,20 +181,14 @@
     </nav>
 
     <header class="hero">
-        <div class="hero-aurora">
-            <div class="aurora-blob aurora-1"></div>
-            <div class="aurora-blob aurora-2"></div>
-        </div>
         <div class="container">
-            <div class="hero-content animate-fade-in" style="margin-top: -50px;">
-                <h1 style="font-family: var(--font-heading);">Crafting Digital <br><span>Masterpieces</span></h1>
-                <p style="font-size: 1.4rem; opacity: 0.9;">We transform your ideas into stunning visuals, immersive
-                    videos, and high-performance digital solutions with surgical precision.</p>
-                <div class="hero-btns" style="display: flex; gap: 20px;">
-                    <a href="#services" class="cta-button">Launch Project</a>
-                    <a href="#portfolio" class="cta-button"
-                        style="background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass);">View
-                        Dossier</a>
+            <div class="hero-content reveal reveal-up">
+                <h1 style="font-family: var(--font-heading);">Professional Digital Solutions <br>for Modern Businesses.
+                </h1>
+                <p style="font-size: 1.25rem; opacity: 0.9; max-width: 600px; margin: 0 auto 40px auto;">Empowering
+                    brands with precision graphics, video, and web development.</p>
+                <div class="hero-btns" style="display: flex; justify-content: center;">
+                    <a href="#contact" class="cta-button">Book a Consultation</a>
                 </div>
             </div>
         </div>
@@ -219,168 +213,46 @@
         </div>
     </section>
 
-    <section id="services" class="extensive-services">
+    <section id="services" class="extensive-services" style="background: var(--surface-glass);">
         <div class="container">
             <h2 class="section-title">Our Capabilities</h2>
 
-            <div class="category-group">
-                <div class="category-header">
-                    <i class="fas fa-palette"></i>
-                    <h3>Graphics & Branding</h3>
+            <div class="services-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                <!-- Service 1 -->
+                <div class="service-card glass reveal reveal-up reveal-delay-1"
+                    style="padding: 40px; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
+                    <i class="fas fa-palette"
+                        style="font-size: 2.5rem; color: var(--primary-accent); margin-bottom: 20px;"></i>
+                    <h3 style="margin-bottom: 15px;">Branding & Graphic Design</h3>
+                    <p>Elevating visual identities with timeless, precision-crafted design.</p>
                 </div>
-                <div class="bento-grid">
-                    <div class="bento-item bento-span-2 bento-row-2 glass-premium quote-trigger"
-                        data-service="Full Branding Suite" style="padding: 0; display: flex; flex-direction: column;">
-                        <img src="images/graphics_branding_hero.png" alt="Graphics Hero"
-                            style="width: 100%; height: 350px; object-fit: cover;">
-                        <div style="padding: 32px;">
-                            <h4 style="font-size: 1.8rem; margin-bottom: 12px;">Full Branding Suite</h4>
-                            <p>Complete visual identity systems, from logo to brand voice, designed for the future.</p>
-                        </div>
-                    </div>
-                    <div class="sub-card glass quote-trigger" data-service="Logo Design">
-                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=400"
-                            alt="Logo Design" class="service-thumbnail">
-                        <h4>Logo Design</h4>
-                        <p>Custom, scalable vector icons.</p>
-                    </div>
-                    <div class="sub-card glass quote-trigger" data-service="UI/UX Design">
-                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=400"
-                            alt="UI/UX Design" class="service-thumbnail">
-                        <h4>UI/UX Mockups</h4>
-                        <p>High-fidelity app & web flows.</p>
-                    </div>
-                    <div class="sub-card glass quote-trigger" data-service="Social Kits">
-                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=400"
-                            alt="Social Media" class="service-thumbnail">
-                        <h4>Social Media Kits</h4>
-                        <p>Cohesive templates & banners.</p>
-                    </div>
-                    <div class="sub-card glass quote-trigger" data-service="Illustration">
-                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=400"
-                            alt="Illustrations" class="service-thumbnail">
-                        <h4>Illustrations</h4>
-                        <p>Bespoke digital artwork.</p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="category-group">
-                <div class="category-header">
-                    <i class="fas fa-video"></i>
-                    <h3>Video Production</h3>
+                <!-- Service 2 -->
+                <div class="service-card glass reveal reveal-up reveal-delay-2"
+                    style="padding: 40px; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
+                    <i class="fas fa-video"
+                        style="font-size: 2.5rem; color: var(--primary-accent); margin-bottom: 20px;"></i>
+                    <h3 style="margin-bottom: 15px;">Video Production</h3>
+                    <p>Cinematic storytelling and high-retention commercial editing.</p>
                 </div>
-                <div class="bento-grid">
-                    <div class="bento-item bento-span-4 glass-premium"
-                        style="padding: 0; min-height: 500px; position: relative;">
-                        <video width="100%" autoPlay loop muted playsInline
-                            style="width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0;">
-                            <source
-                                src="https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-code-4171-large.mp4"
-                                type="video/mp4">
-                        </video>
-                        <div class="video-overlay-content"
-                            style="background: radial-gradient(circle, rgba(3, 7, 18, 0.4) 0%, rgba(3, 7, 18, 0.8) 100%);">
-                            <h3 class="shimmer-text" style="font-size: 3.5rem;">Cinematic Mastery</h3>
-                            <p style="font-size: 1.2rem; margin-bottom: 30px;">Next-gen visual storytelling for the
-                                digital age.</p>
-                            <div class="pulsing-play-btn quote-trigger" data-service="Cinematic Production">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sub-card glass quote-trigger" data-service="Film Edits">
-                        <img src="images/video_production_hero.png" alt="Video Hero" class="service-thumbnail">
-                        <h4>High-End Edits</h4>
-                        <p>Professional grade color and pacing.</p>
-                    </div>
-                    <div class="sub-card glass quote-trigger" data-service="VFX">
-                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=400"
-                            alt="VFX" class="service-thumbnail">
-                        <h4>VFX & Motion</h4>
-                        <p>Dynamic effects and animation.</p>
-                    </div>
-                    <div class="sub-card glass quote-trigger" data-service="Social Content">
-                        <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&q=80&w=400"
-                            alt="Reels" class="service-thumbnail">
-                        <h4>Viral Shorts</h4>
-                        <p>Engineered for maximum retention.</p>
-                    </div>
-                    <div class="sub-card glass quote-trigger" data-service="Corporate">
-                        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=400"
-                            alt="Corporate" class="service-thumbnail">
-                        <h4>Corporate</h4>
-                        <p>Professional brand messaging.</p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="category-group">
-                <div class="category-header">
-                    <i class="fas fa-code"></i>
-                    <h3>Digital Development</h3>
+                <!-- Service 3 -->
+                <div class="service-card glass reveal reveal-up reveal-delay-3"
+                    style="padding: 40px; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
+                    <i class="fas fa-code"
+                        style="font-size: 2.5rem; color: var(--primary-accent); margin-bottom: 20px;"></i>
+                    <h3 style="margin-bottom: 15px;">Web Development</h3>
+                    <p>Robust, scalable, and high-performance digital platforms.</p>
                 </div>
-                <div class="bento-grid">
-                    <div class="bento-item bento-span-2 glass-premium quote-trigger" data-service="Custom Engineering"
-                        style="padding: 0; display: flex; flex-direction: column;">
-                        <img src="images/web_dev_hero.png" alt="Web Hero"
-                            style="width: 100%; height: 250px; object-fit: cover;">
-                        <div style="padding: 32px;">
-                            <h4 style="font-size: 1.6rem; margin-bottom: 12px;">Custom Engineering</h4>
-                            <p>Bespoke web applications, SaaS platforms, and enterprise solutions built for scale.</p>
-                        </div>
-                    </div>
-                    <div class="sub-card glass quote-trigger" data-service="E-commerce">
-                        <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=400"
-                            alt="E-commerce" class="service-thumbnail">
-                        <h4>E-Commerce</h4>
-                        <p>High-converting stores.</p>
-                    </div>
-                    <div class="sub-card glass quote-trigger" data-service="Landing Pages">
-                        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&q=80&w=400"
-                            alt="Landing Pages" class="service-thumbnail">
-                        <h4>Landing Pages</h4>
-                        <p>Direct response optimized.</p>
-                    </div>
-                    <div class="sub-card glass bento-span-2 quote-trigger" data-service="Browser Extensions">
-                        <img src="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?auto=format&fit=crop&q=80&w=400"
-                            alt="Chrome" class="service-thumbnail">
-                        <h4>Browser Extensions</h4>
-                        <p>Powerful Manifest V3 compliant tools for Chrome, Firefox, and Edge.</p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="category-group">
-                <div class="category-header">
-                    <i class="fas fa-puzzle-piece"></i>
-                    <h3>Browser Extensions</h3>
-                </div>
-                <div class="subcategory-grid">
-                    <div class="sub-card glass quote-trigger" data-service="Chrome Web Store">
-                        <img src="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?auto=format&fit=crop&q=80&w=400"
-                            alt="Chrome" class="service-thumbnail">
-                        <h4>Chrome Web Store</h4>
-                        <p>Manifest V3 compliant apps.</p>
-                    </div>
-                    <div class="sub-card glass quote-trigger" data-service="Firefox Add-ons">
-                        <img src="https://images.unsplash.com/photo-1631427962232-803d4f30c64f?auto=format&fit=crop&q=80&w=400"
-                            alt="Firefox" class="service-thumbnail">
-                        <h4>Firefox Add-ons</h4>
-                        <p>Cross-browser compatibility.</p>
-                    </div>
-                    <div class="sub-card glass quote-trigger" data-service="Productivity Tools">
-                        <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&q=80&w=400"
-                            alt="Productivity" class="service-thumbnail">
-                        <h4>Productivity Tools</h4>
-                        <p>Workflow automation scripts.</p>
-                    </div>
-                    <div class="sub-card glass quote-trigger" data-service="Privacy Shields">
-                        <img src="https://images.unsplash.com/photo-1563206767-5b18f218e8de?auto=format&fit=crop&q=80&w=400"
-                            alt="Privacy" class="service-thumbnail">
-                        <h4>Privacy Shields</h4>
-                        <p>Adblockers & tracker blockers.</p>
-                    </div>
+                <!-- Service 4 -->
+                <div class="service-card glass reveal reveal-up reveal-delay-4"
+                    style="padding: 40px; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
+                    <i class="fas fa-chess-knight"
+                        style="font-size: 2.5rem; color: var(--primary-accent); margin-bottom: 20px;"></i>
+                    <h3 style="margin-bottom: 15px;">Digital Strategy</h3>
+                    <p>Data-driven brand positioning and growth optimization.</p>
                 </div>
             </div>
         </div>
@@ -406,18 +278,21 @@
             <h2 class="section-title">Why Our Pricing Works</h2>
             <div class="feature-grid-3"
                 style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px;">
-                <div class="feature-card glass" style="padding: 40px; border-radius: 20px; text-align: center;">
+                <div class="feature-card glass reveal reveal-up reveal-delay-1"
+                    style="padding: 40px; border-radius: 20px; text-align: center;">
                     <i class="fas fa-coins" style="font-size: 2.5rem; color: #fbbf24; margin-bottom: 20px;"></i>
                     <h3>Smart Credit System</h3>
                     <p>Standard assets cost 1 credit. Complex projects are estimated upfront. Zero hidden fees.</p>
                 </div>
-                <div class="feature-card glass" style="padding: 40px; border-radius: 20px; text-align: center;">
+                <div class="feature-card glass reveal reveal-up reveal-delay-2"
+                    style="padding: 40px; border-radius: 20px; text-align: center;">
                     <i class="fas fa-bolt"
                         style="font-size: 2.5rem; color: var(--primary-accent); margin-bottom: 20px;"></i>
                     <h3>Hyper-Fast Turnaround</h3>
                     <p>Most requests are delivered within 24-48 hours. Rush options available for urgent needs.</p>
                 </div>
-                <div class="feature-card glass" style="padding: 40px; border-radius: 20px; text-align: center;">
+                <div class="feature-card glass reveal reveal-up reveal-delay-3"
+                    style="padding: 40px; border-radius: 20px; text-align: center;">
                     <i class="fas fa-shield-halved"
                         style="font-size: 2.5rem; color: var(--secondary-accent); margin-bottom: 20px;"></i>
                     <h3>Quality Guarantee</h3>
@@ -441,7 +316,7 @@
             </div>
 
             <div class="pricing-grid expanded-pricing">
-                <div class="pricing-card glass">
+                <div class="pricing-card glass reveal reveal-up reveal-delay-1">
                     <h3>Starter</h3>
                     <div class="price" data-usd-monthly="49" data-usd-yearly="39" data-gbp-monthly="39"
                         data-gbp-yearly="30" data-pkr-monthly="15000" data-pkr-yearly="12000"><span
@@ -457,7 +332,7 @@
                     <a href="#" class="cta-button pricing-buy-btn" data-plan="Starter Tier" data-price="49">Get
                         Started</a>
                 </div>
-                <div class="pricing-card glass popular">
+                <div class="pricing-card glass popular reveal reveal-up reveal-delay-2">
                     <div class="popular-badge">MOST POPULAR</div>
                     <h3>Professional</h3>
                     <div class="price" data-usd-monthly="149" data-usd-yearly="119" data-gbp-monthly="115"
@@ -475,452 +350,197 @@
                     <a href="#" class="cta-button pricing-buy-btn" data-plan="Professional Tier" data-price="149">Go
                         Pro</a>
                 </div>
-                <div class="pricing-card glass unlimited-glow">
+                <div class="pricing-card glass unlimited-glow reveal reveal-up reveal-delay-3">
                     <div class="popular-badge" style="background: linear-gradient(to right, #fbbf24, #f59e0b);">ELITE
-                    </div>
-                    <h3>Unlimited</h3>
-                    <div class="price" data-usd-monthly="499" data-usd-yearly="399" data-gbp-monthly="390"
-                        data-gbp-yearly="312" data-pkr-monthly="140000" data-pkr-yearly="112000"><span
-                            class="currency-symbol">$</span><span class="amount">499</span><span
-                            class="duration">/mo</span></div>
-                    <p class="plan-desc">Total digital transformation partners.</p>
-                    <ul class="features-list">
-                        <li><i class="fas fa-check"></i> <strong>Unlimited</strong> Requests</li>
-                        <li><i class="fas fa-check"></i> Dedicated Art Director</li>
-                        <li><i class="fas fa-check"></i> Custom Web/App Solutions</li>
-                        <li><i class="fas fa-check"></i> VIP Slack Access</li>
-                        <li><i class="fas fa-check"></i> Same-day Delivery</li>
-                    </ul>
-                    <a href="#" class="cta-button pricing-buy-btn" data-plan="Unlimited Tier" data-price="499">Go
-                        Unlimited</a>
-                </div>
-            </div>
-        </div>
-    </section>
+                        <!-- About Section -->
+                        <section id="about" style="background: var(--bg-color); padding: 80px 0;">
+                            <div class="container" style="text-align: center; max-width: 800px;">
+                                <h2 class="section-title">Who We Are</h2>
+                                <p style="font-size: 1.2rem; margin-bottom: 20px;">Crown Graphics is a premium digital
+                                    agency specializing in high-end design, cinematic video production, and robust web
+                                    development. We merge stunning aesthetics with cutting-edge technology to deliver
+                                    unparalleled results for modern brands.</p>
+                                <p style="font-size: 1.2rem;">Every project we take on is treated with royal precision.
+                                    No compromises, just excellence.</p>
+                            </div>
+                        </section>
 
-    <section id="about" class="about-section">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2 class="section-title" style="text-align: left;">Who We Are</h2>
-                    <p>Crown Graphics isn't just an agency; it's a creative powerhouse. Founded by industry veterans, we
-                        merge stunning aesthetics with cutting-edge technology.</p>
-                    <p>We believe that every brand deserves a royal treatment, which is why we obsess over every pixel,
-                        every frame of video, and every line of code.</p>
-                    <div class="stats-row">
-                        <div class="stat">
-                            <h3>500+</h3><span>Projects</span>
-                        </div>
-                        <div class="stat">
-                            <h3>99%</h3><span>Client Success</span>
-                        </div>
-                        <div class="stat">
-                            <h3>24/7</h3><span>Support</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                        <section id="testimonials">
+                            <div class="container">
+                                <h2 class="section-title">Client Stories</h2>
+                                <div class="testimonials-grid">
+                                    <div class="testimonial-card glass reveal reveal-scale">
+                                        <i class="fas fa-quote-left"></i>
+                                        <p class="testimonial-text">"Crown Graphics transformed our brand from a generic
+                                            startup to a
+                                            premium player in the field. Their attention to detail in the logo and web
+                                            app was surgical."
+                                        </p>
+                                        <div class="testimonial-author">
+                                            <div class="author-img">JD</div>
+                                            <div class="author-info">
+                                                <h4>James Dalton</h4>
+                                                <p>CEO, TechStream</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-card glass reveal reveal-scale reveal-delay-1">
+                                        <i class="fas fa-quote-left"></i>
+                                        <p class="testimonial-text">"The video editing is on another level. Our YouTube
+                                            retention jumped by
+                                            40% after we started using their cinematic edits. Highly recommended!"</p>
+                                        <div class="testimonial-author">
+                                            <div class="author-img">SK</div>
+                                            <div class="author-info">
+                                                <h4>Sarah Khan</h4>
+                                                <p>Influencer & Creator</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-card glass reveal reveal-scale reveal-delay-2">
+                                        <i class="fas fa-quote-left"></i>
+                                        <p class="testimonial-text">"Fast, professional, and reliable. Their browser
+                                            extension development
+                                            saved us months of work. A truly world-class digital agency."</p>
+                                        <div class="testimonial-author">
+                                            <div class="author-img">MR</div>
+                                            <div class="author-info">
+                                                <h4>Marcus Reed</h4>
+                                                <p>Product Lead, Finnova</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
 
-    <section id="blog" class="blog-section">
-        <div class="container">
-            <h2 class="section-title">Latest Insights</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item glass">
-                    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800"
-                        alt="Blog Post">
-                    <div class="portfolio-overlay"
-                        style="opacity: 1; background: linear-gradient(to top, rgba(5, 11, 24, 1), rgba(5, 11, 24, 0.4));">
-                        <span style="color: var(--primary-accent); font-size: 0.8rem; margin-bottom: 5px;">Design
-                            Trends</span>
-                        <h3>Glassmorphism in 2026</h3>
-                        <a href="#" style="color: white; margin-top: 10px; font-weight: 600;">Read More <i
-                                class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="portfolio-item glass">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800"
-                        alt="Blog Post">
-                    <div class="portfolio-overlay"
-                        style="opacity: 1; background: linear-gradient(to top, rgba(5, 11, 24, 1), rgba(5, 11, 24, 0.4));">
-                        <span style="color: var(--secondary-accent); font-size: 0.8rem; margin-bottom: 5px;">Web
-                            Development</span>
-                        <h3>React vs. Vanilla JS for Extensions</h3>
-                        <a href="#" style="color: white; margin-top: 10px; font-weight: 600;">Read More <i
-                                class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                        <section id="contact" style="background: var(--surface-glass);">
+                            <div class="container">
+                                <h2 class="section-title">Start Your Project</h2>
+                                <div class="contact-container glass reveal reveal-up"
+                                    style="max-width: 800px; margin: 0 auto; padding: 50px;">
+                                    <div
+                                        style="display: flex; justify-content: space-between; margin-bottom: 40px; flex-wrap: wrap; gap: 20px;">
+                                        <div>
+                                            <h4 style="color: var(--text-secondary); margin-bottom: 5px;">Email Us</h4>
+                                            <p style="font-weight: 600; font-size: 1.1rem;"><a
+                                                    href="mailto:hello@crowngraphics.com">hello@crowngraphics.com</a>
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <h4 style="color: var(--text-secondary); margin-bottom: 5px;">Call Us</h4>
+                                            <p style="font-weight: 600; font-size: 1.1rem;"><a href="tel:+1234567890">+1
+                                                    (234) 567-890</a></p>
+                                        </div>
+                                    </div>
 
-    <section id="portfolio">
-        <div class="container">
-            <h2 class="section-title">Latest Works</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item glass animate-fade-in">
-                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=800"
-                        alt="Branding Project">
-                    <div class="portfolio-overlay">
-                        <h3>Lumina Logo</h3>
-                        <p>Graphic Design / Branding</p>
-                    </div>
-                </div>
-                <div class="portfolio-item glass animate-fade-in" style="animation-delay: 0.1s;">
-                    <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&q=80&w=800"
-                        alt="Video Edit">
-                    <div class="portfolio-overlay">
-                        <h3>Urban Motion</h3>
-                        <p>Video Editing / VFX</p>
-                    </div>
-                </div>
-                <div class="portfolio-item glass animate-fade-in" style="animation-delay: 0.2s;">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
-                        alt="Web Project">
-                    <div class="portfolio-overlay">
-                        <h3>SaaS Pulse</h3>
-                        <p>Website Development</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                                    <form class="contact-form">
+                                        <div style="display: flex; gap: 20px; margin-bottom: 20px;">
+                                            <div class="form-group" style="flex: 1; margin-bottom: 0;">
+                                                <label>Full Name</label>
+                                                <input type="text" placeholder="John Doe" required
+                                                    style="width: 100%; padding: 14px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass); border-radius: var(--radius-md); color: white;">
+                                            </div>
+                                            <div class="form-group" style="flex: 1; margin-bottom: 0;">
+                                                <label>Email</label>
+                                                <input type="email" placeholder="john@example.com" required
+                                                    style="width: 100%; padding: 14px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass); border-radius: var(--radius-md); color: white;">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Message</label>
+                                            <textarea rows="5" placeholder="How can we help your business grow?"
+                                                required
+                                                style="width: 100%; padding: 14px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass); border-radius: var(--radius-md); color: white; resize: vertical;"></textarea>
+                                        </div>
+                                        <div style="display: flex; gap: 15px;">
+                                            <button type="submit" class="cta-button submit-btn" style="flex: 2;">Book
+                                                Consultation</button>
+                                            <a href="https://wa.me/1234567890" target="_blank" class="cta-button"
+                                                style="flex: 1; background: #25D366; color: white;"><i
+                                                    class="fab fa-whatsapp"></i> WhatsApp</a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </section>
 
-    <section id="testimonials">
-        <div class="container">
-            <h2 class="section-title">Client Stories</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card glass">
-                    <i class="fas fa-quote-left"></i>
-                    <p class="testimonial-text">"Crown Graphics transformed our brand from a generic startup to a
-                        premium player in the field. Their attention to detail in the logo and web app was surgical."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-img">JD</div>
-                        <div class="author-info">
-                            <h4>James Dalton</h4>
-                            <p>CEO, TechStream</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card glass">
-                    <i class="fas fa-quote-left"></i>
-                    <p class="testimonial-text">"The video editing is on another level. Our YouTube retention jumped by
-                        40% after we started using their cinematic edits. Highly recommended!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-img">SK</div>
-                        <div class="author-info">
-                            <h4>Sarah Khan</h4>
-                            <p>Influencer & Creator</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card glass">
-                    <i class="fas fa-quote-left"></i>
-                    <p class="testimonial-text">"Fast, professional, and reliable. Their browser extension development
-                        saved us months of work. A truly world-class digital agency."</p>
-                    <div class="testimonial-author">
-                        <div class="author-img">MR</div>
-                        <div class="author-info">
-                            <h4>Marcus Reed</h4>
-                            <p>Product Lead, Finnova</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                        <footer class="complex-footer">
+                            <div class="container">
+                                <div class="footer-grid">
+                                    <div class="footer-brand">
+                                        <div class="logo">Crown Graphics</div>
+                                        <p>Transforming ideas into digital masterpieces. We are a premium agency
+                                            specializing in design,
+                                            video, web, and custom extensions.</p>
+                                        <div class="social-links footer-socials">
+                                            <a href="#"><i class="fab fa-twitter"></i></a>
+                                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                                            <a href="#"><i class="fab fa-instagram"></i></a>
+                                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                                            <a href="#"><i class="fab fa-github"></i></a>
+                                        </div>
+                                    </div>
 
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Get in Touch</h2>
-            <div class="contact-container glass animate-fade-in">
-                <div class="availability-status">
-                    <span class="status-dot"></span> Team Online: Ready to chat
-                </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label>Full Name</label>
-                        <input type="text" placeholder="John Doe" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" placeholder="john@example.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Project Type</label>
-                        <select
-                            style="padding: 16px; border-radius: var(--radius-md); background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-glass); color: white; display: block; font-family: inherit;">
-                            <option value="graphics">Graphics Design</option>
-                            <option value="video">Video Editing</option>
-                            <option value="extension">Extension Development</option>
-                            <option value="website">Website Development</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Message</label>
-                        <textarea rows="5" placeholder="Tell us about your project..." required></textarea>
-                    </div>
-                    <button type="submit" class="cta-button submit-btn">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
+                                    <div class="footer-links">
+                                        <h3>Company</h3>
+                                        <ul>
+                                            <li><a href="#about">About Us</a></li>
+                                            <li><a href="#portfolio">Careers</a></li>
+                                            <li><a href="#blog">Blog & News</a></li>
+                                            <li><a href="#contact">Contact Support</a></li>
+                                            <li><a href="#">Privacy Policy</a></li>
+                                        </ul>
+                                    </div>
 
-    <footer class="complex-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <div class="logo">Crown Graphics</div>
-                    <p>Transforming ideas into digital masterpieces. We are a premium agency specializing in design,
-                        video, web, and custom extensions.</p>
-                    <div class="social-links footer-socials">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-dribbble"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
+                                    <div class="footer-links">
+                                        <h3>Top Services</h3>
+                                        <ul>
+                                            <li><a href="#">Branding & Identity</a></li>
+                                            <li><a href="#">Premium UI/UX Design</a></li>
+                                            <li><a href="#">Cinematic Video Production</a></li>
+                                            <li><a href="#">Custom SaaS Development</a></li>
+                                            <li><a href="#">Browser Extensions</a></li>
+                                        </ul>
+                                    </div>
 
-                <div class="footer-links">
-                    <h3>Company</h3>
-                    <ul>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#portfolio">Careers</a></li>
-                        <li><a href="#blog">Blog & News</a></li>
-                        <li><a href="#contact">Contact Support</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
+                                    <div class="footer-newsletter">
+                                        <h3>Stay Updated</h3>
+                                        <p>Subscribe to our newsletter for the latest design trends and agency news.</p>
+                                        <form class="newsletter-form">
+                                            <input type="email" placeholder="Enter your email" required>
+                                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                                        </form>
+                                    </div>
+                                </div>
 
-                <div class="footer-links">
-                    <h3>Top Services</h3>
-                    <ul>
-                        <li><a href="#">Branding & Identity</a></li>
-                        <li><a href="#">Premium UI/UX Design</a></li>
-                        <li><a href="#">Cinematic Video Production</a></li>
-                        <li><a href="#">Custom SaaS Development</a></li>
-                        <li><a href="#">Browser Extensions</a></li>
-                    </ul>
-                </div>
+                                <div class="footer-bottom">
+                                    <p>© 2026 Crown Graphics Agency. Crafted with <i class="fas fa-heart"></i> for
+                                        digital excellence.</p>
+                                </div>
+                            </div>
+                        </footer>
 
-                <div class="footer-newsletter">
-                    <h3>Stay Updated</h3>
-                    <p>Subscribe to our newsletter for the latest design trends and agency news.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Enter your email" required>
-                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                    </form>
-                </div>
-            </div>
 
-            <div class="footer-bottom">
-                <p>© 2026 Crown Graphics Agency. Crafted with <i class="fas fa-heart"></i> for digital excellence.</p>
-            </div>
-        </div>
-    </footer>
 
-    <!-- Dynamic Quote Modal -->
-    <div id="quoteModal" class="modal-overlay">
-        <div class="modal-content glass">
-            <button class="close-modal"><i class="fas fa-times"></i></button>
-            <h2 id="modalTitle">Request a Quote</h2>
-            <p id="modalDesc" style="color: var(--text-secondary); margin-bottom: 24px;">Configure your custom service
-                request below.</p>
+                        <!-- Google Translate Script -->
+                        <script type="text/javascript">
+                            function googleTranslateElementInit() {
+                                new google.translate.TranslateElement({
+                                    pageLanguage: 'en',
+                                    includedLanguages: 'en,ur,ar',
+                                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                                }, 'google_translate_element');
+                            }
+                        </script>
+                        <script type="text/javascript"
+                            src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-            <!-- Dynamic Pricing Banner -->
-            <div id="priceEstimateBanner" class="glass"
-                style="padding: 15px; border-radius: 12px; margin-bottom: 24px; border-left: 4px solid var(--primary-accent); display: flex; justify-content: space-between; align-items: center; background: rgba(99, 102, 241, 0.1);">
-                <span style="font-weight: 600; font-size: 0.9rem; color: var(--text-primary);">Estimated
-                    Investment:</span>
-                <span id="estimatedAmount"
-                    style="font-size: 1.2rem; font-weight: 800; color: var(--primary-accent);">$0.00</span>
-            </div>
+                        <!-- International Telephone Input JS -->
+                        <script
+                            src="https://cdn.jsdelivr.net/npm/intl-tel-input@20.0.5/build/js/intlTelInput.min.js"></script>
 
-            <form id="quoteForm" class="contact-form">
-                <div class="form-group">
-                    <label>Project Scope / Style</label>
-                    <select id="modalScope" required>
-                        <option value="basic">Basic / Clean</option>
-                        <option value="premium">Premium / Highly Detailed</option>
-                        <option value="enterprise">Enterprise / Custom Architecture</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Timeline Priority</label>
-                    <select id="modalUrgency" required>
-                        <option value="standard">Standard (14-30 days)</option>
-                        <option value="rush">Rush (Under 7 days) +25%</option>
-                    </select>
-                </div>
-
-                <!-- Dynamic Service Specific Container -->
-                <div id="dynamicFieldsContainer" style="margin-bottom: 24px;"></div>
-
-                <div class="form-group">
-                    <label>Custom Design Preferences / How do you want it made?</label>
-                    <textarea id="modalCustom" rows="4"
-                        placeholder="Describe your vision, brand colors, target audience, or specific tech stack..."
-                        required></textarea>
-                </div>
-                <!-- Delivery & Contacts -->
-                <div class="form-group" style="display: flex; gap: 16px;">
-                    <div style="flex: 1;">
-                        <label>Your Email</label>
-                        <input type="email" id="modalEmail" placeholder="you@company.com" required>
-                    </div>
-                    <div style="flex: 1;">
-                        <label>Delivery Method</label>
-                        <select id="modalDelivery" required>
-                            <option value="website">Website Notification</option>
-                            <option value="whatsapp">WhatsApp Delivery</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group" id="whatsappGroup" style="display: none;">
-                    <label>WhatsApp Number</label>
-                    <input type="tel" id="modalPhone" placeholder="Enter number">
-                </div>
-
-                <button type="submit" id="mainSubmitBtn" class="cta-button submit-btn" style="width: 100%;">Calculate
-                    Estimate & Proceed</button>
-            </form>
-
-            <!-- OTP Section (Hidden initially) -->
-            <div id="otpSection" class="contact-form" style="display: none; text-align: center; margin-top: 20px;">
-                <hr style="border-color: rgba(255,255,255,0.1); margin-bottom: 20px;">
-                <h3 style="color: var(--primary-accent); margin-bottom: 10px;"><i class="fab fa-whatsapp"></i> WhatsApp
-                    Verification</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.9rem;">We've sent a 4-digit
-                    security code to your WhatsApp to verify the delivery connection.</p>
-
-                <div class="form-group" style="max-width: 200px; margin: 0 auto 20px;">
-                    <input type="text" id="otpInput" maxlength="4" placeholder="0000"
-                        style="text-align: center; font-size: 2rem; letter-spacing: 10px; padding: 10px;">
-                </div>
-
-                <p style="color: var(--secondary-accent); font-weight: bold; margin-bottom: 20px;">Time Remaining: <span
-                        id="otpTimer">01:00</span></p>
-
-                <button id="verifyOtpBtn" class="cta-button submit-btn" style="width: 100%; margin-bottom: 10px;">Verify
-                    & Submit Order</button>
-                <button id="cancelOtpBtn"
-                    style="background: transparent; border: none; color: var(--text-secondary); cursor: pointer; text-decoration: underline;">Cancel
-                    / Edit Details</button>
-            </div>
-
-            <!-- Success Section -->
-            <div id="successSection" style="display: none; text-align: center; padding: 40px 0;">
-                <i class="fas fa-check-circle" style="font-size: 4rem; color: #10b981; margin-bottom: 20px;"></i>
-                <h3 style="margin-bottom: 10px;">Order Successfully Placed!</h3>
-                <p style="color: var(--text-secondary);">Your custom design request has been saved securely to our
-                    system.</p>
-                <a href="admin.html" target="_blank"
-                    style="display: inline-block; margin-top: 20px; color: var(--primary-accent);">View Dashboard
-                    Simulation &rarr;</a>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Secure Checkout Modal (For Pricing Plans) -->
-    <div id="checkoutModal" class="modal-overlay">
-        <div class="modal-content glass">
-            <button class="close-modal checkout-close-btn"><i class="fas fa-times"></i></button>
-            <h2>Secure Checkout</h2>
-            <p style="color: var(--text-secondary); margin-bottom: 24px;">Complete your purchase for: <strong
-                    id="checkoutPlanName" style="color: var(--primary-accent);">Plan</strong></p>
-
-            <div
-                style="background: rgba(255,255,255,0.05); padding: 16px; border-radius: var(--radius-md); margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--border-glass);">
-                <span style="font-weight: 500;">Total Amount</span>
-                <span id="checkoutTotalAmount" style="font-size: 1.5rem; font-weight: 800; color: white;">$0</span>
-            </div>
-
-            <form id="checkoutForm" class="contact-form">
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" id="checkoutName" placeholder="Jane Doe" required>
-                </div>
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" id="checkoutEmail" placeholder="jane@company.com" required>
-                </div>
-
-                <!-- Payment Method Toggle -->
-                <div class="form-group">
-                    <label>Payment Method</label>
-                    <div style="display: flex; gap: 10px;">
-                        <label class="payment-radio"
-                            style="flex: 1; border: 1px solid var(--primary-accent); padding: 12px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.05);">
-                            <input type="radio" name="payMethod" value="card" checked> <i
-                                class="fas fa-credit-card"></i> Credit Card
-                        </label>
-                        <label class="payment-radio"
-                            style="flex: 1; border: 1px solid var(--border-glass); padding: 12px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 8px; background: transparent;">
-                            <input type="radio" name="payMethod" value="paypal"> <i class="fab fa-paypal"></i> PayPal
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Simulated Card UI -->
-                <div id="cardUI"
-                    style="background: rgba(0,0,0,0.2); border: 1px solid var(--border-glass); border-radius: var(--radius-md); padding: 20px; margin-bottom: 20px;">
-                    <div class="form-group" style="margin-bottom: 12px;">
-                        <label style="font-size: 0.85rem;">Card Number</label>
-                        <div style="position: relative;">
-                            <i class="fab fa-cc-visa"
-                                style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); font-size: 1.2rem; color: #cbd5e1;"></i>
-                            <input type="text" placeholder="0000 0000 0000 0000" maxlength="19" required id="cardInput"
-                                style="letter-spacing: 2px;">
-                        </div>
-                    </div>
-                    <div style="display: flex; gap: 12px;">
-                        <div class="form-group" style="flex: 1;">
-                            <label style="font-size: 0.85rem;">Expiry Date</label>
-                            <input type="text" placeholder="MM/YY" maxlength="5" required id="expInput">
-                        </div>
-                        <div class="form-group" style="flex: 1;">
-                            <label style="font-size: 0.85rem;">CVC</label>
-                            <input type="password" placeholder="123" maxlength="3" required id="cvcInput">
-                        </div>
-                    </div>
-                </div>
-
-                <button type="submit" class="cta-button submit-btn" style="width: 100%;"><i class="fas fa-lock"></i> Pay
-                    Now securely</button>
-            </form>
-
-            <div id="checkoutSuccess" style="display: none; text-align: center; padding: 40px 0;">
-                <i class="fas fa-check-circle" style="font-size: 4rem; color: #10b981; margin-bottom: 20px;"></i>
-                <h3 style="margin-bottom: 10px;">Payment Successful!</h3>
-                <p style="color: var(--text-secondary);">Your subscription is active. Order logged.</p>
-                <a href="admin.html" target="_blank"
-                    style="display: inline-block; margin-top: 20px; color: var(--primary-accent);">View Dashboard
-                    Simulation &rarr;</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Google Translate Script -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'en,ur,ar',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript"
-        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-    <!-- International Telephone Input JS -->
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@20.0.5/build/js/intlTelInput.min.js"></script>
-
-    <script type="module" src="main.js"></script>
+                        <script src="main.js?v=2"></script>
 </body>
 
 </html>

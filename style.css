@@ -1,26 +1,29 @@
 :root {
-    /* Premium Color Palette (Deep Space & Electric Indigo) */
-    --bg-color: #030712;
-    /* Deepest Indigo/Black */
-    --surface-glass: rgba(17, 24, 39, 0.4);
-    --surface-glass-hover: rgba(31, 41, 55, 0.6);
-    --border-glass: rgba(255, 255, 255, 0.05);
+    /* Premium Agency Color Palette (Dark Navy & Soft Blue) */
+    --bg-color: #0A1128;
+    /* Deep Navy Background */
+    --surface-glass: rgba(16, 24, 46, 0.7);
+    /* Subtle Navy Glass */
+    --surface-glass-hover: rgba(28, 42, 70, 0.8);
+    --border-glass: rgba(255, 255, 255, 0.08);
 
-    --primary-accent: #6366f1;
-    /* Electric Indigo */
-    --primary-accent-glow: rgba(99, 102, 241, 0.3);
+    --primary-accent: #3A86FF;
+    /* Professional Soft Blue */
+    --primary-accent-glow: rgba(58, 134, 255, 0.15);
+    /* Subdued glow */
 
-    --secondary-accent: #06b6d4;
-    /* Vibrant Cyan */
-    --secondary-accent-glow: rgba(6, 182, 212, 0.3);
+    --secondary-accent: #48CAE4;
+    /* Lighter Cyan for subtle contrasts */
+    --secondary-accent-glow: rgba(72, 202, 228, 0.1);
 
-    --text-primary: #f9fafb;
-    --text-secondary: #9ca3af;
-    --text-muted: #6b7280;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
 
-    /* Typography - Premium Weights */
+    /* Typography - Clean, readable, professional */
     --font-main: 'Inter', sans-serif;
-    --font-heading: 'Outfit', sans-serif;
+    --font-heading: 'Plus Jakarta Sans', sans-serif;
+    /* Adds a touch of modern geometry */
     --font-ui: 'Inter', sans-serif;
 
     --font-weight-light: 300;
@@ -28,82 +31,16 @@
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
-    --font-weight-extrabold: 800;
 
-    /* Spacing & Borders - More geometric and precise */
-    --radius-xl: 32px;
-    --radius-lg: 20px;
-    --radius-md: 12px;
-    --nav-height: 72px;
-
-    /* Light Theme (Refined) */
-    --light-bg: #f8fafc;
-    --light-surface: rgba(255, 255, 255, 0.8);
-    --light-border: rgba(0, 0, 0, 0.06);
-    --light-text-primary: #0f172a;
-    --light-text-secondary: #475569;
+    /* Spacing & Borders - More generous padding, softer edges */
+    --radius-xl: 24px;
+    --radius-lg: 16px;
+    --radius-md: 8px;
+    --nav-height: 80px;
+    /* Slightly taller for breathing room */
 }
 
-/* Light Theme Override */
-body.light-theme {
-    background-color: var(--light-bg);
-    color: var(--light-text-primary);
-}
-
-body.light-theme .glass {
-    background: var(--light-surface);
-    border: 1px solid var(--light-border);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
-}
-
-body.light-theme h1,
-body.light-theme h2,
-body.light-theme h3,
-body.light-theme h4,
-body.light-theme .logo {
-    color: var(--light-text-primary);
-}
-
-body.light-theme p,
-body.light-theme a:not(.cta-button),
-body.light-theme li {
-    color: var(--light-text-secondary);
-}
-
-body.light-theme .sub-card h4 {
-    color: var(--light-text-primary);
-}
-
-body.light-theme .sub-card:hover {
-    background: rgba(255, 255, 255, 0.9);
-}
-
-body.light-theme .dropdown-content {
-    background: #ffffff;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-}
-
-body.light-theme .mega-column a {
-    color: var(--light-text-secondary);
-}
-
-body.light-theme .mega-column a:hover {
-    color: var(--primary-accent);
-}
-
-body.light-theme .form-group input,
-body.light-theme .form-group textarea,
-body.light-theme .form-group select {
-    background: white;
-    color: var(--text-primary);
-    border-color: rgba(0, 0, 0, 0.2);
-}
-
-body.light-theme .form-group select option {
-    background: white;
-    color: var(--text-primary);
-}
-
+/* --- Global Resets & Typography --- */
 * {
     margin: 0;
     padding: 0;
@@ -111,18 +48,60 @@ body.light-theme .form-group select option {
 }
 
 body {
-    background-color: var(--bg-color);
-    background-image:
-        radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 40%);
-    background-attachment: fixed;
-    color: var(--text-primary);
     font-family: var(--font-main);
-    position: relative;
-    transition: background-color 0.5s ease, color 0.5s ease;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
     line-height: 1.7;
+    /* Increased for readability */
     overflow-x: hidden;
-    font-weight: var(--font-weight-regular);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+    line-height: 1.2;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: -0.02em;
+    /* Tighter letter spacing for headings */
+}
+
+h2.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 60px;
+    /* More breathing room */
+}
+
+a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+p {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+}
+
+/* Base structural elements */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+section {
+    padding: 100px 0;
+    /* Huge padding for premium feel */
+    position: relative;
+    z-index: 10;
 }
 
 /* Feature Ribbon Under Video */
@@ -413,55 +392,9 @@ body {
         opacity: 0;
     }
 
-    50% {
-        opacity: 0.8;
-    }
-
     100% {
         transform: translateY(-100%) scale(1.5);
         opacity: 0;
-    }
-}
-
-.video-cta-glow {
-    text-align: center;
-    z-index: 3;
-    background: rgba(15, 23, 42, 0.4);
-    padding: 40px;
-    border-radius: var(--radius-lg);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-    max-width: 600px;
-    animation: boxPulse 4s infinite alternate ease-in-out;
-}
-
-@keyframes boxPulse {
-    from {
-        box-shadow: 0 0 20px rgba(14, 165, 233, 0.1);
-        border-color: rgba(255, 255, 255, 0.1);
-    }
-
-    to {
-        box-shadow: 0 0 40px rgba(192, 132, 252, 0.2);
-        border-color: rgba(192, 132, 252, 0.3);
-    }
-}
-
-.shimmer-text {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 12px;
-    background: linear-gradient(to right, #fff 0%, var(--primary-accent) 50%, #fff 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shimmer 3s linear infinite;
-}
-
-@keyframes shimmer {
-    to {
-        background-position: 200% center;
     }
 }
 
@@ -487,6 +420,54 @@ section {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Reveal on Scroll Animations */
+.reveal {
+    opacity: 0;
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.reveal-up {
+    transform: translateY(50px);
+}
+
+.reveal-left {
+    transform: translateX(-50px);
+}
+
+.reveal-right {
+    transform: translateX(50px);
+}
+
+.reveal-scale {
+    transform: scale(0.9);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+}
+
+/* Staggered Delays for Grid Items */
+.reveal-delay-1 {
+    transition-delay: 0.1s;
+}
+
+.reveal-delay-2 {
+    transition-delay: 0.2s;
+}
+
+.reveal-delay-3 {
+    transition-delay: 0.3s;
+}
+
+.reveal-delay-4 {
+    transition-delay: 0.4s;
+}
+
+.reveal-delay-5 {
+    transition-delay: 0.5s;
 }
 
 @keyframes float {
@@ -759,18 +740,37 @@ body.light-theme .theme-btn {
 }
 
 .cta-button {
-    background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
-    color: white;
-    padding: 12px 28px;
-    border-radius: 100px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    padding: 14px 28px;
+    background: var(--primary-accent);
+    color: #fff;
+    font-family: var(--font-ui);
+    font-weight: var(--font-weight-medium);
+    border-radius: var(--radius-md);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-size: 1rem;
 }
 
 .cta-button:hover {
+    background: #2563EB;
+    /* Slightly darker blue */
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px var(--primary-accent-glow);
+    box-shadow: 0 8px 20px rgba(58, 134, 255, 0.2);
+}
+
+.cta-outline {
+    background: transparent;
+    border: 1px solid var(--border-glass);
+    color: var(--text-primary);
+}
+
+.cta-outline:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+    box-shadow: none;
 }
 
 /* Hero Section */
@@ -1819,9 +1819,6 @@ body.light-theme .goog-te-gadget-simple .goog-te-menu-value span {
     gap: 30px;
 }
 
-.animate-fade-in {
-    animation: fadeIn 1s ease-out;
-}
 
 @keyframes fadeIn {
     from {
